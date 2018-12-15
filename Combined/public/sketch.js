@@ -1,5 +1,5 @@
 // vj machine state elements
-let url = 'http://arj247.itp.io:7000/state';
+let url = 'http://localhost/state';
 let mode;
 let gifCounter;
 let gifImageURL;
