@@ -2,7 +2,7 @@
 // curl -X POST -d "word=dance" http://localhost:7000/gifword
 // curl -X POST -d "circle=1" -d "square=1" http://localhost:7000/shapes
 // curl -X POST -d "h=20" -d "s=100" -d "l=100" http://localhost:7000/background
-
+const path = require('path');
 var cors = require('cors');
 var express = require('express');
 var server = express();
@@ -12,7 +12,7 @@ var request = require('request');
 server.use(cors());
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: false}));
-server.use(express.static('public'));
+server.use(express.static(path.join(__dirname, 'public')));
 
 var gifDomain = 'https://api.giphy.com/v1/stickers/random?&api_key=';
 var gifAPIKey = config.apikey;
