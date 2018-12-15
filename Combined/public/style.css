@@ -1,0 +1,28 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-align: center;
+  }
+  canvas {
+    display: block;
+  }
+  
+  table, td, th {
+    border: 1px solid black;
+  }
+  
+  table {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  button{
+    margin: 10px;
+    width: 150px;
+  }
+  
+  #currentGif {
+    max-height: 250px;
+  }
+   

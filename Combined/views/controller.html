@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<!-- 10.17.238.73:7000 -->
+<head>
+  <meta charset="utf-8">
+  <title>VJ Interface</title>
+  <script src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <h1>super cool vj interface</h1>
+
+
+  <table>
+    <tr>
+      <td colspan="2">
+        <h2>Gif Mode</h2>
+        <input id="gifMode" type="checkbox">on/off</input>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        gif keyword: <input id="getGifWord" type="text" placeholder="hit enter to send"></input>
+      </td>
+      <td>
+        Current Gif:
+        <img id="currentGif" src="">
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <h2>Abstract Visual Mode</h2>
+        <input id="avMode" type="checkbox">on/off</input>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h3>Foreground Color</h3>
+        <p>Hue
+          <input id="fgHue" type="range" min="0" max="360" value="0"></input>
+        </p>
+        <p>Saturation
+          <input id="fgSat" type="range" min="0" max="100" value="0"></input>
+        </p>
+        <p>Lightness
+          <input id="fgLig" type="range" min="0" max="100" value="0"></input>
+        </p>
+      </td>
+      <td>
+        <h3>Background Color</h3>
+        <p>Hue
+          <input id="bgHue" type="range" min="0" max="360" value="0"></input>
+        </p>
+        <p>Saturation
+          <input id="bgSat" type="range" min="0" max="100" value="0"></input>
+        </p>
+        <p>Lightness
+          <input id="bgLig" type="range" min="0" max="100" value="0"></input>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h3>Shapes</h3>
+        <input id="square" type="checkbox">Squares</input>
+        <input id="circle" type="checkbox">Circles</input>
+        <input id="triangle" type="checkbox">Triangles</input>
+        <input id="squiggle" type="checkbox">Squiggles</input>
+        <input id="arc" type="checkbox">Arcs</input>
+      </td>
+    </tr>
+  </table>
+
+
+
+</body>
+
+</html>
