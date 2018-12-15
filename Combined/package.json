@@ -10,6 +10,8 @@
   "author": "alden jones",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "cors": "^2.8.5",
+    "express": "^4.16.3",
+    "request": "^2.88.0"
   }
 }
