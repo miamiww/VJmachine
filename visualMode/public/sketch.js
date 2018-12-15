@@ -28,7 +28,7 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  colorMode(HSB, 100);
+  colorMode(HSB, 360);
   setInterval(getState, 500);
 }
 
