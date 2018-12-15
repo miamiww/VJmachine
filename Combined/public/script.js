@@ -1,4 +1,4 @@
-const URL="http://localhost";
+const URL="http://visualmode.space";
 
 //GLOBAL VARIABLES
 let modeState ={

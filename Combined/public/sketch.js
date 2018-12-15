@@ -1,5 +1,5 @@
 // vj machine state elements
-let url = 'http://localhost/state';
+let url = 'http://visualmode.space/state';
 let mode;
 let gifCounter;
 let gifImageURL;
