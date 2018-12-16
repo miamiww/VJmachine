@@ -71,6 +71,9 @@ function getGIF() {
   return request(getGIFURL, { json: true }, (error, response, body) => {
     if (error) { return console.log(err); }
     state.gif.imageURL = body.data.image_original_url;
+    if (state.gif.imageURL == undefined) {
+      state.gif.imageURL = 'https://media3.giphy.com/media/39jMsjdFQ2BcHRXiBO/giphy.gif';
+    }
   });
 }
 
