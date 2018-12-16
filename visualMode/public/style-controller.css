@@ -1,0 +1,75 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	text-align: center;
+}
+
+h1 {
+	margin-top: 20px;
+	margin-bottom: 15px;
+	text-align: center;
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+
+h3 {
+	font-size: 1.25em;
+}
+
+.container {
+	padding: 10px;
+	width: 90%;
+	min-width: 270px;
+}
+
+.row {
+	padding: 10px 0 10px 0;
+}
+
+#gifContainer {
+	background-color: #f9bea2;
+}
+
+#avContainer {
+	background-color: #ffe8a5;
+}
+
+input[type='checkbox'] {
+	-webkit-appearance: none;
+	width: 25px;
+	height: 25px;
+	background: white;
+	border-radius: 5px;
+	border: 2px solid #555;
+}
+
+input[type='checkbox']:checked {
+	background: #47423f;
+}
+
+
+
+table,
+td,
+th {
+	border: 1px solid black;
+}
+
+table {
+	width: 100%;
+	padding: 20px;
+}
+
+button {
+	margin: 10px;
+	width: 150px;
+}
+
+#currentGif {
+	max-height: 250px;
+}
