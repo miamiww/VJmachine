@@ -15,7 +15,7 @@ let fgColor = {
 let bgColor = {
   h: "0",
   s: "50",
-  l: "50"
+  l: "100"
 };
 let shapes = {
   square: "0",
