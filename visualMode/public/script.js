@@ -1,10 +1,10 @@
-const URL="http://visualmode.space";
+const URL = "http://visualmode.space";
 
 //GLOBAL VARIABLES
-let modeState ={
+let modeState = {
   value: "0"
 };
-let keyWord={
+let keyWord = {
   gifword: ""
 }
 let fgColor = {
@@ -13,7 +13,7 @@ let fgColor = {
   l: "0"
 };
 let bgColor = {
-  h: "0", 
+  h: "0",
   s: "0",
   l: "0"
 };
@@ -32,6 +32,7 @@ window.addEventListener('load', function() {
   //get gif dom elements
   let gifMode = document.getElementById("gifMode");
   let getGifWord = document.getElementById("getGifWord");
+  let submitGif = document.getElementById("submitGif");
   //get abstract visual dom elements
   let avMode = document.getElementById("avMode");
   //foreground colors
@@ -69,8 +70,8 @@ window.addEventListener('load', function() {
     axios({
       method: 'post',
       url: URL + "/mode",
-      data:{
-        value 
+      data: {
+        value
       }
     })
   });
@@ -91,11 +92,11 @@ window.addEventListener('load', function() {
     };
     // console.log("POST", modeState);
     let value = modeState.value;
- 
+
     axios({
       method: 'post',
-      url: URL+"/mode",
-      data:{
+      url: URL + "/mode",
+      data: {
         value
       }
     })
@@ -111,12 +112,24 @@ window.addEventListener('load', function() {
       let word = this.value;
       axios({
         method: 'post',
-        url: URL+"/gifword",
-        data:{
+        url: URL + "/gifword",
+        data: {
           word
         }
       });
     }
+  });
+
+  submitGif.addEventListener('click', function(e) {
+    console.log("POST", getGifWord.value);
+    let word = getGifWord.value;
+    axios({
+      method: 'post',
+      url: URL + "/gifword",
+      data: {
+        word
+      }
+    });
   });
 
   //for all slider inputs
@@ -131,12 +144,30 @@ window.addEventListener('load', function() {
         data: bgColor
       })
     });
+    elemName.addEventListener('touchend', function() {
+      obj[key] = this.value;
+      console.log("mobile - POST", obj);
+      axios({
+        method: 'post',
+        url: URL + "/background",
+        data: bgColor
+      })
+    });
   }
 
   function fgpostSlider(elemName, key, obj) {
     elemName.addEventListener('mouseup', function() {
       obj[key] = this.value;
       console.log("POST", obj);
+      axios({
+        method: 'post',
+        url: URL + "/foreground",
+        data: fgColor
+      })
+    });
+    elemName.addEventListener('touchend', function() {
+      obj[key] = this.value;
+      console.log("mobile - POST", obj);
       axios({
         method: 'post',
         url: URL + "/foreground",
@@ -156,12 +187,12 @@ window.addEventListener('load', function() {
   //post updated shape object
   function postCheckbox(shapeName, key, obj) {
     shapeName.addEventListener("click", function() {
-      if(this.checked){
+      if (this.checked) {
         obj[key] = "1";
-      } else{
+      } else {
         obj[key] = "0";
       }
-  
+
       console.log("POST", obj);
       axios({
         method: 'post',
