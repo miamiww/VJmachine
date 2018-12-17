@@ -38,30 +38,8 @@
 		</div>
 	</div>
 
-	<div id="avContainer" class="container">
-		<div class="row">
-			<div class="col">
-				<h2>Abstract Visual Mode</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				on/off: <input id="avMode" type="checkbox"></input>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<h3>Foreground Color</h3>
-				<div class="row">
-					<div class="col" style="text-align: right;">
-						Hue<br>Saturation<br>Lightness
-					</div>
-					<div class="col" style="text-align: left;">
-						<input id="fgHue" type="range" min="0" max="360" value="0"></input><br> <input id="fgSat" type="range" min="0" max="100" value="0"></input> <br><input id="fgLig" type="range" min="0" max="100" value="0"></input>
-					</div>
-				</div>
-			</div>
-		</div>
+
+
 		<div class="row">
 			<div class="col">
 				<h3>Background Color</h3>
@@ -70,11 +48,36 @@
 						Hue<br>Saturation<br>Lightness
 					</div>
 					<div class="col" style="text-align: left;">
-						<input id="bgHue" type="range" min="0" max="360" value="0"></input><br> <input id="bgSat" type="range" min="0" max="100" value="0"></input><br><input id="bgLig" type="range" min="0" max="100" value="0"></input>
+						<input id="bgHue" type="range" min="0" max="360" value="0"></input><br> <input id="bgSat" type="range" min="0" max="100" value="50"></input><br><input id="bgLig" type="range" min="0" max="100" value="50"></input>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div id="avContainer" class="container">
+			<div class="row">
+				<div class="col">
+					<h2>Abstract Visual Mode</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					on/off: <input id="avMode" type="checkbox"></input>
+				</div>
+			</div>
+		<div class="row">
+			<div class="col">
+				<h3>Foreground Color</h3>
+				<div class="row">
+					<div class="col" style="text-align: right;">
+						Hue<br>Saturation<br>Lightness
+					</div>
+					<div class="col" style="text-align: left;">
+						<input id="fgHue" type="range" min="0" max="360" value="0"></input><br> <input id="fgSat" type="range" min="0" max="100" value="100"></input> <br><input id="fgLig" type="range" min="0" max="100" value="50"></input>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="col">
 				<h3>Shapes</h3>

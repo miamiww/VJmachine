@@ -9,13 +9,13 @@ let keyWord = {
 }
 let fgColor = {
   h: "0",
-  s: "0",
-  l: "0"
-};
+  s: "100",
+  l: "50"
+}; 
 let bgColor = {
   h: "0",
-  s: "0",
-  l: "0"
+  s: "50",
+  l: "50"
 };
 let shapes = {
   square: "0",
