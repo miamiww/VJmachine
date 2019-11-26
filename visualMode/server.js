@@ -1,11 +1,26 @@
+
+// tests of the API
 // curl -X POST -d "value=1" http://localhost:7000/mode
 // curl -X POST -d "word=dance" http://localhost:7000/gifword
 // curl -X POST -d "circle=1" -d "square=1" http://localhost:7000/shapes
 // curl -X POST -d "h=20" -d "s=100" -d "l=100" http://localhost:7000/background
-const path = require('path');
-var cors = require('cors');
+
+// HTTPS settup
+// using https method as detailed here https://itnext.io/node-express-letsencrypt-generate-a-free-ssl-certificate-and-run-an-https-server-in-5-minutes-a730fbe528ca
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+const credentials = {
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.cert')
+};
+// express server setup
 var express = require('express');
 var server = express();
+
+const path = require('path');
+var cors = require('cors');
+
 var bodyParser = require('body-parser');
 var config = require('./config.js');
 var request = require('request');
@@ -13,6 +28,11 @@ server.use(cors());
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: false}));
 server.use(express.static(path.join(__dirname, 'public')));
+
+// http/s servers
+const httpServer = http.createServer(server);
+const httpsServer = https.createServer(credentials, server);
+
 
 var gifDomain = 'https://api.giphy.com/v1/stickers/random?&api_key=';
 var gifAPIKey = config.apikey;
@@ -100,7 +120,9 @@ function setShapes(request, response){
   response.send(state.shapes);
 }
 
-server.listen(80, serverStart);
+httpServer.listen(80, serverStart);
+httpsServer.listen(443, serverStart);
+
 server.get('/state/', getState);
 server.post('/mode/', setMode);
 server.post('/gifword/', setGIFWord);
