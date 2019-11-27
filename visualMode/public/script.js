@@ -1,4 +1,4 @@
-const URL = "http://visualmode.space";
+const URL = "https://visualmode.space";
 
 //GLOBAL VARIABLES
 let modeState = {
