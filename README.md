@@ -11,9 +11,9 @@ public folder elements:
 * style.css is for everything
 
 views:
-* controller.html is for http://visualmode.space/controller
+* controller.html is for https://visualmode.space/controller
 
-* visualmode.html is for http://visualmode.space/visualmode which is where the visuals are
+* visualmode.html is for https://visualmode.space/visualmode
 
-* index.html is for http://visualmode.space and is just a rough splash page at this point but we could link to it as credits or a project description
+* index.html is for https://visualmode.space
 
