@@ -10,9 +10,9 @@
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/cert.pem', 'utf8');
-const ca = fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/chain.pem', 'utf8');
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/visualmode.space/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/visualmode.space/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/visualmode.space/chain.pem', 'utf8');
 
 const credentials = {
 	key: privateKey,
@@ -33,7 +33,7 @@ var request = require('request');
 server.use(cors());
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: false}));
-server.use(express.static(path.join(__dirname, 'public', {dotfiles: 'allow'})));
+server.use(express.static(path.join(__dirname, 'public')));
 
 // http/s servers
 const httpServer = http.createServer(server);
