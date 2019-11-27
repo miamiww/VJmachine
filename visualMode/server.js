@@ -1,18 +1,44 @@
+
+// tests of the API
 // curl -X POST -d "value=1" http://localhost:7000/mode
 // curl -X POST -d "word=dance" http://localhost:7000/gifword
 // curl -X POST -d "circle=1" -d "square=1" http://localhost:7000/shapes
 // curl -X POST -d "h=20" -d "s=100" -d "l=100" http://localhost:7000/background
-const path = require('path');
-var cors = require('cors');
+
+// HTTPS settup
+// using https method as detailed here https://itnext.io/node-express-letsencrypt-generate-a-free-ssl-certificate-and-run-an-https-server-in-5-minutes-a730fbe528ca
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/chain.pem', 'utf8');
+
+const credentials = {
+	key: privateKey,
+	cert: certificate,
+	ca: ca
+};
+
+// express server setup
 var express = require('express');
 var server = express();
+
+const path = require('path');
+var cors = require('cors');
+
 var bodyParser = require('body-parser');
 var config = require('./config.js');
 var request = require('request');
 server.use(cors());
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: false}));
-server.use(express.static(path.join(__dirname, 'public')));
+server.use(express.static(path.join(__dirname, 'public', {dotfiles: 'allow'})));
+
+// http/s servers
+const httpServer = http.createServer(server);
+const httpsServer = https.createServer(credentials, server);
+
 
 var gifDomain = 'https://api.giphy.com/v1/stickers/random?&api_key=';
 var gifAPIKey = config.apikey;
@@ -100,7 +126,9 @@ function setShapes(request, response){
   response.send(state.shapes);
 }
 
-server.listen(80, serverStart);
+httpServer.listen(80, serverStart);
+httpsServer.listen(443, serverStart);
+
 server.get('/state/', getState);
 server.post('/mode/', setMode);
 server.post('/gifword/', setGIFWord);
